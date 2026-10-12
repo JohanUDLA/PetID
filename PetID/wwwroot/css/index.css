@@ -1,0 +1,92 @@
+:root {
+    --primary: #1b6ec2;
+    --accent: #258cfb;
+    --dark-overlay: rgba(15, 23, 42, 0.75);
+    --muted: #6c757d;
+    --card-bg: #ffffff;
+}
+
+/* Hero con imagen de fondo */
+.hero-wrapper {
+    background: url('../imagenes/Fondo_pagina_principal.png') center/cover no-repeat;
+    position: relative;
+    border-radius: 0 0 1.5rem 1.5rem;
+    overflow: hidden;
+    margin-top: -1rem; /* Ajuste según layout */
+}
+
+.hero-overlay {
+    background: linear-gradient(135deg, rgba(27, 110, 194, 0.85), var(--dark-overlay));
+    min-height: 520px;
+}
+
+.hero-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+}
+
+.logo-preview {
+    max-height: 220px;
+    object-fit: contain;
+}
+
+.hero-card {
+    transition: transform 0.3s ease;
+}
+
+    .hero-card:hover {
+        transform: translateY(-5px);
+    }
+
+/* Badges numerados para pasos */
+.step-badge {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Cards animadas */
+.card.custom-card {
+    border: none;
+    border-radius: 1rem;
+    background-color: var(--card-bg);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+    .card.custom-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12) !important;
+    }
+
+/* Estilos de Tabla */
+.custom-table-wrapper {
+    overflow: hidden;
+    border: 1px solid #e9ecef;
+}
+
+    .custom-table-wrapper thead {
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        color: #ffffff;
+    }
+
+/* Banner de Precios */
+.price-banner {
+    background-color: #f8f9fa;
+    border: 2px dashed #28a745;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+    .hero-overlay {
+        padding: 2rem 0;
+    }
+}
