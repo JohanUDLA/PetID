@@ -1,0 +1,126 @@
+@{
+    ViewData["Title"] = "Dashboard - PetID";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="/">PetID</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/Privacy">Privacidad</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-danger" href="#logout">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>¡Bienvenido!</strong> Has iniciado sesión correctamente en PetID.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <div class="display-6 text-primary mb-3">🐕</div>
+                        <h5 class="card-title">Mis Mascotas</h5>
+                        <p class="card-text text-muted">Gestiona la información de tus mascotas</p>
+                        <a href="#" class="btn btn-primary btn-sm">Ver</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <div class="display-6 text-primary mb-3">📱</div>
+                        <h5 class="card-title">Mis Identificadores</h5>
+                        <p class="card-text text-muted">Administra tus chips NFC</p>
+                        <a href="#" class="btn btn-primary btn-sm">Ver</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <div class="display-6 text-primary mb-3">📊</div>
+                        <h5 class="card-title">Estadísticas</h5>
+                        <p class="card-text text-muted">Ver actividad y reportes</p>
+                        <a href="#" class="btn btn-primary btn-sm">Ver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-12">
+                <h3 class="mb-4">Actividad Reciente</h3>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Mascota</th>
+                                <th>Evento</th>
+                                <th>Fecha</th>
+                                <th>Ubicación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Max (Perro)</strong></td>
+                                <td><span class="badge bg-success">Escaneo</span></td>
+                                <td>Hace 2 horas</td>
+                                <td>Parque Central</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Luna (Gato)</strong></td>
+                                <td><span class="badge bg-info">Registro</span></td>
+                                <td>Hace 5 horas</td>
+                                <td>Casa</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rocky (Perro)</strong></td>
+                                <td><span class="badge bg-warning">Actualización</span></td>
+                                <td>Hace 1 día</td>
+                                <td>Veterinario</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="border-top mt-5 py-4 text-muted text-center">
+        <div class="container">
+            &copy; 2026 - PetID - Identificación Inteligente para Mascotas
+        </div>
+    </footer>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
