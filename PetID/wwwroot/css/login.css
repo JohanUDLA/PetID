@@ -4,7 +4,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #003d7a 0%, #0066cc 50%, #1a7fd9 100%);
+    background:
+        radial-gradient(circle at 15% 20%, rgba(247, 194, 196, 0.52) 0 7%, transparent 7.5%),
+        radial-gradient(circle at 85% 82%, rgba(99, 198, 193, 0.45) 0 9%, transparent 9.5%),
+        linear-gradient(135deg, #fffaf8 0%, #f5ebe8 48%, #dff4f1 100%);
     position: relative;
     overflow: hidden;
 }
@@ -14,7 +17,7 @@
     position: absolute;
     width: 400px;
     height: 400px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(238, 145, 140, 0.15);
     border-radius: 50%;
     top: -100px;
     left: -100px;
@@ -25,7 +28,7 @@
     position: absolute;
     width: 300px;
     height: 300px;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(99, 198, 193, 0.16);
     border-radius: 50%;
     bottom: -50px;
     right: -50px;
@@ -42,7 +45,8 @@
 .login-card {
     background: white;
     border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(247, 194, 196, 0.55);
+    box-shadow: 0 20px 60px rgba(79, 125, 121, 0.18);
     padding: 40px;
     max-width: 420px;
     margin: 0 auto;
@@ -68,7 +72,7 @@
 .login-logo {
     max-width: 80px;
     height: auto;
-    filter: drop-shadow(0 4px 8px rgba(0, 61, 122, 0.2));
+    filter: drop-shadow(0 4px 8px rgba(50, 156, 152, 0.18));
     transition: transform 0.3s ease;
 }
 
@@ -77,7 +81,7 @@
 }
 
 .login-header h1 {
-    color: #003d7a;
+    color: #329c98;
     font-size: 28px;
     margin-bottom: 5px;
 }
@@ -95,7 +99,7 @@
 }
 
 .login-form .form-control {
-    border: 1px solid #e0e0e0;
+    border: 1px solid #e8d5d4;
     border-radius: 10px;
     padding: 12px 15px;
     font-size: 14px;
@@ -104,15 +108,15 @@
 }
 
 .login-form .form-control:focus {
-    border-color: #0066cc;
-    box-shadow: 0 0 0 0.2rem rgba(0, 102, 204, 0.25);
+    border-color: #63c6c1;
+    box-shadow: 0 0 0 0.2rem rgba(99, 198, 193, 0.20);
     background: white !important;
 }
 
 .login-form .input-group-text {
-    border: 1px solid #e0e0e0;
+    border: 1px solid #e8d5d4;
     border-radius: 10px 0 0 10px;
-    color: #0066cc;
+    color: #329c98;
 }
 
 .login-form .input-group .form-control {
@@ -121,9 +125,9 @@
 
 /* Input Group */
 .input-group-text {
-    background: transparent;
-    border: 1px solid #e0e0e0;
-    color: #0066cc;
+    background: #fffaf8;
+    border: 1px solid #e8d5d4;
+    color: #329c98;
 }
 
 /* Checkbox */
@@ -135,13 +139,13 @@
 }
 
 .form-check-input:checked {
-    background-color: #0066cc;
-    border-color: #0066cc;
+    background-color: #63c6c1;
+    border-color: #63c6c1;
 }
 
 .form-check-input:focus {
-    border-color: #0066cc;
-    box-shadow: 0 0 0 0.2rem rgba(0, 102, 204, 0.25);
+    border-color: #63c6c1;
+    box-shadow: 0 0 0 0.2rem rgba(99, 198, 193, 0.20);
 }
 
 .form-check-label {
@@ -153,19 +157,19 @@
 
 /* Buttons */
 .btn-primary {
-    background: linear-gradient(135deg, #0066cc 0%, #1a7fd9 100%);
+    background: linear-gradient(135deg, #329c98 0%, #63c6c1 100%);
     border: none;
     border-radius: 10px;
     font-weight: 600;
     font-size: 15px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+    box-shadow: 0 4px 15px rgba(50, 156, 152, 0.22);
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, #0052a3 0%, #1565b8 100%);
+    background: linear-gradient(135deg, #278b87 0%, #4bb7b1 100%);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 102, 204, 0.4);
+    box-shadow: 0 8px 25px rgba(50, 156, 152, 0.30);
     color: white;
 }
 
@@ -184,8 +188,8 @@
 
 .btn-outline-secondary:hover {
     background-color: #f8f9fa;
-    border-color: #0066cc;
-    color: #0066cc;
+    border-color: #f7c2c4;
+    color: #329c98;
 }
 
 /* Divider */
@@ -201,7 +205,7 @@
 .divider::after {
     content: '';
     flex: 1;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid #eadbd9;
 }
 
 .divider::before {
@@ -232,12 +236,12 @@
 
 /* Links */
 a.text-primary {
-    color: #0066cc !important;
+    color: #329c98 !important;
     transition: all 0.3s ease;
 }
 
 a.text-primary:hover {
-    color: #0052a3 !important;
+    color: #ee918c !important;
     text-decoration: underline !important;
 }
 

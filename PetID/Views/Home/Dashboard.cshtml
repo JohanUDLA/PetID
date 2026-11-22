@@ -1,4 +1,5 @@
 @{
+    Layout = null;
     ViewData["Title"] = "Dashboard - PetID";
 }
 
@@ -13,20 +14,20 @@
     <link rel="stylesheet" href="~/css/dashboard.css" asp-append-version="true" />
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg dashboard-navbar border-bottom">
+        <div class="container-fluid dashboard-container">
             <a class="navbar-brand fw-bold" href="/">PetID</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-lg-center">
-                    <li class="nav-item"><a class="nav-link" href="#identificadores">Identificadores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#identificadores">Mis identificadores</a></li>
                     <li class="nav-item"><a class="nav-link" href="#estadisticas">Estadísticas</a></li>
                     <li class="nav-item">
                         <form action="@Url.Action("Logout", "Home")" method="post" class="d-inline">
                             @Html.AntiForgeryToken()
-                            <button type="submit" class="nav-link text-danger border-0 bg-transparent">Cerrar Sesión</button>
+                            <button type="submit" class="btn dashboard-logout-btn">Cerrar sesión</button>
                         </form>
                     </li>
                 </ul>
@@ -35,7 +36,7 @@
     </nav>
 
     <main class="container dashboard-container py-4 py-lg-5">
-        <div class="alert alert-success alert-dismissible fade show" role="status">
+        <div class="alert alert-success alert-dismissible fade show dashboard-welcome" role="status">
             <strong>¡Bienvenido!</strong> Has iniciado sesión correctamente en PetID.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
         </div>

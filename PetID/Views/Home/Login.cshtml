@@ -26,6 +26,11 @@
                 </div>
 
                 <!-- Form -->
+                @if (TempData["RegistrationSuccess"] is string registrationSuccess)
+                {
+                    <div class="alert alert-success" role="status">@registrationSuccess</div>
+                }
+
                 <form method="post" class="login-form">
                     @if (!ViewData.ModelState.IsValid)
                     {
@@ -99,7 +104,7 @@
                 <div class="text-center mt-4">
                     <p class="text-muted">
                         ¿No tienes cuenta? 
-                        <a href="#" class="text-primary fw-bold text-decoration-none">Regístrate aquí</a>
+                        <a asp-action="Register" class="text-primary fw-bold text-decoration-none">Regístrate aquí</a>
                     </p>
                 </div>
 

@@ -32,6 +32,56 @@ namespace PetID.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(RegisterViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var email = model.Email.Trim();
+            var normalizedEmail = email.ToUpperInvariant();
+            if (await _dbContext.Users.AnyAsync(user => user.NormalizedEmail == normalizedEmail))
+            {
+                ModelState.AddModelError(nameof(model.Email), "Ya existe una cuenta con este correo electrónico.");
+                return View(model);
+            }
+
+            var user = new PetUser
+            {
+                Email = email,
+                NormalizedEmail = normalizedEmail
+            };
+            user.PasswordHash = _passwordHasher.HashPassword(user, model.Password);
+            _dbContext.Users.Add(user);
+
+            try
+            {
+                await _dbContext.SaveChangesAsync();
+            }
+            catch (DbUpdateException)
+            {
+                if (!await _dbContext.Users.AnyAsync(account => account.NormalizedEmail == normalizedEmail))
+                {
+                    throw;
+                }
+
+                ModelState.AddModelError(nameof(model.Email), "Ya existe una cuenta con este correo electrónico.");
+                return View(model);
+            }
+
+            TempData["RegistrationSuccess"] = "Tu cuenta fue creada. Ya puedes iniciar sesión.";
+            return RedirectToAction(nameof(Login));
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
