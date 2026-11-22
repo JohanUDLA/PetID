@@ -10,6 +10,7 @@
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/dashboard.css" asp-append-version="true" />
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
@@ -19,10 +20,9 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Home/Privacy">Privacidad</a>
-                    </li>
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="#identificadores">Identificadores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#estadisticas">Estadísticas</a></li>
                     <li class="nav-item">
                         <form action="@Url.Action("Logout", "Home")" method="post" class="d-inline">
                             @Html.AntiForgeryToken()
@@ -34,89 +34,150 @@
         </div>
     </nav>
 
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-12">
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>¡Bienvenido!</strong> Has iniciado sesión correctamente en PetID.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                </div>
-            </div>
+    <main class="container dashboard-container py-4 py-lg-5">
+        <div class="alert alert-success alert-dismissible fade show" role="status">
+            <strong>¡Bienvenido!</strong> Has iniciado sesión correctamente en PetID.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
         </div>
 
-        <div class="row mt-4">
-            <div class="col-md-4 mb-4">
-                <div class="card border-0 shadow-sm">
-                    <div class="card-body text-center">
-                        <div class="display-6 text-primary mb-3">🐕</div>
-                        <h5 class="card-title">Mis Mascotas</h5>
-                        <p class="card-text text-muted">Gestiona la información de tus mascotas</p>
-                        <a href="#" class="btn btn-primary btn-sm">Ver</a>
+        <section class="dashboard-heading mb-4" aria-labelledby="dashboard-title">
+            <div>
+                <p class="dashboard-eyebrow mb-1">TU ESPACIO PETID</p>
+                <h1 id="dashboard-title" class="h2 mb-2">Resumen de tu cuenta</h1>
+                <p class="text-muted mb-0">Consulta el estado de tus mascotas e identificadores.</p>
+            </div>
+        </section>
+
+        <section id="mascotas" class="row g-3 mb-5" aria-label="Resumen">
+            <div class="col-12 col-sm-6 col-xl-3">
+                <article class="card dashboard-stat h-100">
+                    <div class="card-body">
+                        <div class="stat-icon stat-icon-blue" aria-hidden="true">🐾</div>
+                        <p class="stat-label">Mascotas registradas</p>
+                        <p class="stat-value">0</p>
+                        <p class="stat-note">Tus perfiles aparecerán aquí</p>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-sm-6 col-xl-3">
+                <article class="card dashboard-stat h-100">
+                    <div class="card-body">
+                        <div class="stat-icon stat-icon-green" aria-hidden="true">📱</div>
+                        <p class="stat-label">Identificadores activos</p>
+                        <p class="stat-value">0</p>
+                        <p class="stat-note">Chips vinculados a tus mascotas</p>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-sm-6 col-xl-3">
+                <article class="card dashboard-stat h-100">
+                    <div class="card-body">
+                        <div class="stat-icon stat-icon-purple" aria-hidden="true">📡</div>
+                        <p class="stat-label">Escaneos este mes</p>
+                        <p class="stat-value">0</p>
+                        <p class="stat-note">Lecturas registradas por NFC</p>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-sm-6 col-xl-3">
+                <article class="card dashboard-stat h-100">
+                    <div class="card-body">
+                        <div class="stat-icon stat-icon-orange" aria-hidden="true">🔔</div>
+                        <p class="stat-label">Alertas pendientes</p>
+                        <p class="stat-value">0</p>
+                        <p class="stat-note">Avisos que requieren tu atención</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="identificadores" class="dashboard-section mb-4" aria-labelledby="identifiers-title">
+            <div class="section-heading">
+                <div>
+                    <p class="dashboard-eyebrow mb-1">IDENTIFICACIÓN NFC</p>
+                    <h2 id="identifiers-title" class="h3 mb-1">Mis identificadores</h2>
+                    <p class="text-muted mb-0">Controla los chips y su estado de vinculación.</p>
+                </div>
+                <span class="section-icon" aria-hidden="true">📲</span>
+            </div>
+
+            <div class="row g-3 mt-2 mb-3">
+                <div class="col-12 col-md-4">
+                    <div class="identifier-status">
+                        <span class="status-dot status-dot-green" aria-hidden="true"></span>
+                        <span>Activos</span>
+                        <strong>0</strong>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="identifier-status">
+                        <span class="status-dot status-dot-yellow" aria-hidden="true"></span>
+                        <span>Sin asignar</span>
+                        <strong>0</strong>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="identifier-status">
+                        <span class="status-dot status-dot-gray" aria-hidden="true"></span>
+                        <span>Desactivados</span>
+                        <strong>0</strong>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4 mb-4">
-                <div class="card border-0 shadow-sm">
-                    <div class="card-body text-center">
-                        <div class="display-6 text-primary mb-3">📱</div>
-                        <h5 class="card-title">Mis Identificadores</h5>
-                        <p class="card-text text-muted">Administra tus chips NFC</p>
-                        <a href="#" class="btn btn-primary btn-sm">Ver</a>
-                    </div>
+            <div class="empty-state">
+                <div class="empty-state-icon" aria-hidden="true">🏷️</div>
+                <h3 class="h5">Aún no tienes identificadores</h3>
+                <p class="text-muted mb-0">Cuando registres y vincules un chip NFC a una mascota, aquí verás su estado y su última actividad.</p>
+            </div>
+        </section>
+
+        <section id="estadisticas" class="dashboard-section mb-4" aria-labelledby="statistics-title">
+            <div class="section-heading">
+                <div>
+                    <p class="dashboard-eyebrow mb-1">ACTIVIDAD Y REPORTES</p>
+                    <h2 id="statistics-title" class="h3 mb-1">Estadísticas</h2>
+                    <p class="text-muted mb-0">Un vistazo a la actividad de tus identificadores.</p>
                 </div>
+                <span class="section-icon" aria-hidden="true">📊</span>
             </div>
 
-            <div class="col-md-4 mb-4">
-                <div class="card border-0 shadow-sm">
-                    <div class="card-body text-center">
-                        <div class="display-6 text-primary mb-3">📊</div>
-                        <h5 class="card-title">Estadísticas</h5>
-                        <p class="card-text text-muted">Ver actividad y reportes</p>
-                        <a href="#" class="btn btn-primary btn-sm">Ver</a>
-                    </div>
+            <div class="row g-3 mt-2">
+                <div class="col-12 col-lg-7">
+                    <article class="statistics-card h-100">
+                        <h3 class="h6">Escaneos por mes</h3>
+                        <div class="chart-empty" role="status">
+                            <span aria-hidden="true">📈</span>
+                            <p class="mb-0">El gráfico aparecerá cuando tus identificadores registren escaneos.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-lg-5">
+                    <article class="statistics-card h-100">
+                        <h3 class="h6">Mascotas por tipo</h3>
+                        <div class="chart-empty" role="status">
+                            <span aria-hidden="true">🐶</span>
+                            <p class="mb-0">Registra mascotas para consultar esta distribución.</p>
+                        </div>
+                    </article>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="row mt-5">
-            <div class="col-12">
-                <h3 class="mb-4">Actividad Reciente</h3>
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead class="table-light">
-                            <tr>
-                                <th>Mascota</th>
-                                <th>Evento</th>
-                                <th>Fecha</th>
-                                <th>Ubicación</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Max (Perro)</strong></td>
-                                <td><span class="badge bg-success">Escaneo</span></td>
-                                <td>Hace 2 horas</td>
-                                <td>Parque Central</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Luna (Gato)</strong></td>
-                                <td><span class="badge bg-info">Registro</span></td>
-                                <td>Hace 5 horas</td>
-                                <td>Casa</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Rocky (Perro)</strong></td>
-                                <td><span class="badge bg-warning">Actualización</span></td>
-                                <td>Hace 1 día</td>
-                                <td>Veterinario</td>
-                            </tr>
-                        </tbody>
-                    </table>
+        <section class="dashboard-section mb-4" aria-labelledby="activity-title">
+            <div class="section-heading">
+                <div>
+                    <p class="dashboard-eyebrow mb-1">ÚLTIMOS MOVIMIENTOS</p>
+                    <h2 id="activity-title" class="h3 mb-1">Actividad reciente</h2>
+                    <p class="text-muted mb-0">Escaneos y actualizaciones de tus mascotas.</p>
                 </div>
+                <span class="section-icon" aria-hidden="true">🕘</span>
             </div>
-        </div>
-    </div>
+            <div class="activity-empty mt-3">
+                Aún no hay actividad para mostrar. Los eventos aparecerán cuando registres mascotas e identificadores.
+            </div>
+        </section>
+    </main>
 
     <footer class="border-top mt-5 py-4 text-muted text-center">
         <div class="container">
