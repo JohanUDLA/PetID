@@ -24,7 +24,10 @@
                         <a class="nav-link" href="/Home/Privacy">Privacidad</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-danger" href="#logout">Cerrar Sesión</a>
+                        <form action="@Url.Action("Logout", "Home")" method="post" class="d-inline">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="nav-link text-danger border-0 bg-transparent">Cerrar Sesión</button>
+                        </form>
                     </li>
                 </ul>
             </div>

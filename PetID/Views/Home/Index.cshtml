@@ -25,10 +25,10 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" href="#privacidad">Privacidad</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
@@ -115,11 +115,35 @@
                 </div>
             </div>
         </section>
+
+        <section id="privacidad" class="py-5" aria-labelledby="privacidad-titulo">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="text-center mb-4">
+                        <span class="badge bg-primary px-3 py-2">Sobre PetID</span>
+                        <h2 id="privacidad-titulo" class="fw-bold display-5 text-dark mt-3">Un proyecto para cuidar a quienes más queremos</h2>
+                    </div>
+                    <div class="card border-0 shadow-sm p-4 p-md-5">
+                        <h3 class="h4 fw-bold">¿Qué es PetID?</h3>
+                        <p class="text-muted">
+                            PetID es un proyecto de identificación inteligente para mascotas que utiliza tecnología NFC. La idea es que una persona pueda acercar un teléfono compatible a la medalla de una mascota y consultar la información de identificación y contacto que su responsable haya preparado para ayudar a que vuelva a casa.
+                        </p>
+                        <h3 class="h4 fw-bold mt-3">Privacidad de la información</h3>
+                        <p class="text-muted mb-2">
+                            La información del perfil debe utilizarse únicamente para facilitar la identificación y el contacto con el responsable de la mascota. Al preparar un perfil, comparte solo los datos necesarios para ese propósito y evita incluir información sensible, como contraseñas o datos financieros.
+                        </p>
+                        <p class="text-muted mb-0">
+                            Este sitio presenta el funcionamiento previsto del proyecto. Antes de registrar información real, revisa qué datos se publican en el perfil y asegúrate de mantenerlos actualizados.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <footer class="border-top footer text-muted mt-5">
         <div class="container">
-            &copy; 2026 - PetID - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2026 - PetID - <a href="#privacidad">Privacidad y proyecto</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
