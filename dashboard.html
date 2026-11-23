@@ -1,64 +1,74 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dashboard | PetID</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - PetID</title>
+    <link rel="stylesheet" href="PetID/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="PetID/wwwroot/css/site.css" />
+    <link rel="stylesheet" href="PetID/wwwroot/css/dashboard.css" />
+    <style>body { background-image: linear-gradient(rgba(255, 250, 248, 0.28), rgba(255, 250, 248, 0.28)), url('PetID/wwwroot/imagenes/FondoDashboard.png'); }</style>
 </head>
 <body>
-  <header class="dashboard-header">
-    <nav class="nav container" aria-label="Navegación del dashboard">
-      <a class="brand" href="index.html"><img src="PetID/wwwroot/imagenes/Logo_PetID.png" alt="">PetID</a>
-      <div class="dashboard-nav"><a href="#identificadores">Mis identificadores</a><a href="#estadisticas">Estadísticas</a><button id="logout-button" type="button">Cerrar sesión</button></div>
+    <nav class="navbar navbar-expand-lg dashboard-navbar border-bottom">
+        <div class="container-fluid dashboard-container">
+            <a class="navbar-brand fw-bold" href="index.html">PetID</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir navegación"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="#identificadores">Mis identificadores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#estadisticas">Estadísticas</a></li>
+                    <li class="nav-item"><button id="logout-button" type="button" class="btn dashboard-logout-btn">Cerrar sesión</button></li>
+                </ul>
+            </div>
+        </div>
     </nav>
-  </header>
 
-  <main class="container dashboard-main">
-    <div class="welcome"><strong>¡Bienvenido!</strong> Sesión de demostración iniciada como <span id="user-name">admin@petid.com</span>.</div>
+    <main class="container dashboard-container py-4 py-lg-5">
+        <div class="alert alert-success alert-dismissible fade show dashboard-welcome" role="status"><strong>¡Bienvenido!</strong> Has iniciado sesión correctamente en PetID como <span id="user-name">admin@petid.com</span>. <span class="ms-2">Dashboard de demostración sin datos reales.</span></div>
+        <section class="dashboard-heading mb-4" aria-labelledby="dashboard-title"><div><p class="dashboard-eyebrow mb-1">TU ESPACIO PETID</p><h1 id="dashboard-title" class="h2 mb-2">Resumen de tu cuenta</h1><p class="text-muted mb-0">Consulta el estado de tus mascotas e identificadores.</p></div></section>
 
-    <section class="dashboard-heading">
-      <div><span class="eyebrow">TU ESPACIO PETID</span><h1>Resumen de tu cuenta</h1><p class="muted">Consulta el estado de tus mascotas e identificadores.</p></div>
-    </section>
+        <section id="mascotas" class="row g-3 mb-5" aria-label="Resumen">
+            <div class="col-12 col-sm-6 col-xl-3"><article class="card dashboard-stat h-100"><div class="card-body"><div class="stat-icon stat-icon-blue" aria-hidden="true">🐾</div><p class="stat-label">Mascotas registradas</p><p class="stat-value">0</p><p class="stat-note">Tus perfiles aparecerán aquí</p></div></article></div>
+            <div class="col-12 col-sm-6 col-xl-3"><article class="card dashboard-stat h-100"><div class="card-body"><div class="stat-icon stat-icon-green" aria-hidden="true">📱</div><p class="stat-label">Identificadores activos</p><p class="stat-value">0</p><p class="stat-note">Chips vinculados a tus mascotas</p></div></article></div>
+            <div class="col-12 col-sm-6 col-xl-3"><article class="card dashboard-stat h-100"><div class="card-body"><div class="stat-icon stat-icon-purple" aria-hidden="true">📡</div><p class="stat-label">Escaneos este mes</p><p class="stat-value">0</p><p class="stat-note">Lecturas registradas por NFC</p></div></article></div>
+            <div class="col-12 col-sm-6 col-xl-3"><article class="card dashboard-stat h-100"><div class="card-body"><div class="stat-icon stat-icon-orange" aria-hidden="true">🔔</div><p class="stat-label">Alertas pendientes</p><p class="stat-value">0</p><p class="stat-note">Avisos que requieren tu atención</p></div></article></div>
+        </section>
 
-    <section class="stats-grid" aria-label="Resumen">
-      <article class="card stat"><span class="stat-icon">🐾</span><h2>Mascotas registradas</h2><strong>0</strong><p>Tus perfiles aparecerán aquí</p></article>
-      <article class="card stat"><span class="stat-icon">📱</span><h2>Identificadores activos</h2><strong>0</strong><p>Chips vinculados a tus mascotas</p></article>
-      <article class="card stat"><span class="stat-icon">📡</span><h2>Escaneos este mes</h2><strong>0</strong><p>Lecturas registradas por NFC</p></article>
-      <article class="card stat"><span class="stat-icon">🔔</span><h2>Alertas pendientes</h2><strong>0</strong><p>Avisos que requieren atención</p></article>
-    </section>
+        <section id="identificadores" class="dashboard-section mb-4" aria-labelledby="identifiers-title">
+            <div class="section-heading"><div><p class="dashboard-eyebrow mb-1">IDENTIFICACIÓN NFC</p><h2 id="identifiers-title" class="h3 mb-1">Mis identificadores</h2><p class="text-muted mb-0">Controla los chips y su estado de vinculación.</p></div><span class="section-icon" aria-hidden="true">📲</span></div>
+            <div class="row g-3 mt-2 mb-3">
+                <div class="col-12 col-md-4"><div class="identifier-status"><span class="status-dot status-dot-green" aria-hidden="true"></span><span>Activos</span><strong>0</strong></div></div>
+                <div class="col-12 col-md-4"><div class="identifier-status"><span class="status-dot status-dot-yellow" aria-hidden="true"></span><span>Sin asignar</span><strong>0</strong></div></div>
+                <div class="col-12 col-md-4"><div class="identifier-status"><span class="status-dot status-dot-gray" aria-hidden="true"></span><span>Desactivados</span><strong>0</strong></div></div>
+            </div>
+            <div class="empty-state"><div class="empty-state-icon" aria-hidden="true">🏷️</div><h3 class="h5">Aún no tienes identificadores</h3><p class="text-muted mb-0">Cuando registres y vincules un chip NFC a una mascota, aquí verás su estado y su última actividad.</p></div>
+        </section>
 
-    <section class="dashboard-section" id="identificadores">
-      <div class="section-title"><div><span class="eyebrow">IDENTIFICACIÓN NFC</span><h2>Mis identificadores</h2></div><span aria-hidden="true">📲</span></div>
-      <div class="status-grid"><div class="status"><span class="dot green"></span>Activos <strong>0</strong></div><div class="status"><span class="dot yellow"></span>Sin asignar <strong>0</strong></div><div class="status"><span class="dot gray"></span>Desactivados <strong>0</strong></div></div>
-      <div class="empty-state"><span aria-hidden="true">🏷️</span><h3>Aún no tienes identificadores</h3><p>Los datos son de demostración y no representan registros reales.</p></div>
-    </section>
+        <section id="estadisticas" class="dashboard-section mb-4" aria-labelledby="statistics-title">
+            <div class="section-heading"><div><p class="dashboard-eyebrow mb-1">ACTIVIDAD Y REPORTES</p><h2 id="statistics-title" class="h3 mb-1">Estadísticas</h2><p class="text-muted mb-0">Un vistazo a la actividad de tus identificadores.</p></div><span class="section-icon" aria-hidden="true">📊</span></div>
+            <div class="row g-3 mt-2">
+                <div class="col-12 col-lg-7"><article class="statistics-card h-100"><h3 class="h6">Escaneos por mes</h3><div class="chart-empty" role="status"><span aria-hidden="true">📈</span><p class="mb-0">El gráfico aparecerá cuando tus identificadores registren escaneos.</p></div></article></div>
+                <div class="col-12 col-lg-5"><article class="statistics-card h-100"><h3 class="h6">Mascotas por tipo</h3><div class="chart-empty" role="status"><span aria-hidden="true">🐶</span><p class="mb-0">Registra mascotas para consultar esta distribución.</p></div></article></div>
+            </div>
+        </section>
 
-    <section class="dashboard-section" id="estadisticas">
-      <div class="section-title"><div><span class="eyebrow">ACTIVIDAD Y REPORTES</span><h2>Estadísticas</h2></div><span aria-hidden="true">📊</span></div>
-      <div class="chart-grid"><article class="card chart"><h3>Escaneos por mes</h3><div class="empty-chart">📈<p>No hay actividad registrada.</p></div></article><article class="card chart"><h3>Mascotas por tipo</h3><div class="empty-chart">🐶<p>No hay mascotas registradas.</p></div></article></div>
-    </section>
+        <section class="dashboard-section mb-4" aria-labelledby="activity-title"><div class="section-heading"><div><p class="dashboard-eyebrow mb-1">ÚLTIMOS MOVIMIENTOS</p><h2 id="activity-title" class="h3 mb-1">Actividad reciente</h2><p class="text-muted mb-0">Escaneos y actualizaciones de tus mascotas.</p></div><span class="section-icon" aria-hidden="true">🕘</span></div><div class="activity-empty mt-3">Aún no hay actividad para mostrar. Los eventos aparecerán cuando registres mascotas e identificadores.</div></section>
+    </main>
 
-    <section class="dashboard-section">
-      <span class="eyebrow">ÚLTIMOS MOVIMIENTOS</span><h2>Actividad reciente</h2>
-      <div class="empty-state"><p>Esta versión de prueba no contiene actividad ni datos reales.</p></div>
-    </section>
-  </main>
-
-  <footer><div class="container">&copy; 2026 PetID · Dashboard demostrativo</div></footer>
-
-  <script>
-    const user = sessionStorage.getItem("petidDemoUser");
-    if (user !== "admin@petid.com") {
-      window.location.replace("login.html");
-    } else {
-      document.getElementById("user-name").textContent = user;
-    }
-
-    document.getElementById("logout-button").addEventListener("click", () => {
-      sessionStorage.removeItem("petidDemoUser");
-      window.location.href = "login.html";
-    });
-  </script>
+    <footer class="border-top mt-5 py-4 text-muted text-center"><div class="container">&copy; 2026 - PetID - Identificación Inteligente para Mascotas</div></footer>
+    <script src="PetID/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const user = sessionStorage.getItem("petidDemoUser");
+        if (user !== "admin@petid.com") {
+            window.location.replace("login.html");
+        } else {
+            document.getElementById("user-name").textContent = user;
+        }
+        document.getElementById("logout-button").addEventListener("click", () => {
+            sessionStorage.removeItem("petidDemoUser");
+            window.location.href = "login.html";
+        });
+    </script>
 </body>
 </html>

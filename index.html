@@ -1,68 +1,93 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Demostración estática de PetID, proyecto de identificación inteligente para mascotas.">
-  <title>PetID | Identificación inteligente para mascotas</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PetID NFC - Identificación Inteligente para Mascotas</title>
+    <link rel="stylesheet" href="PetID/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="PetID/wwwroot/css/site.css" />
+    <link rel="stylesheet" href="PetID/wwwroot/css/index.css" />
+    <style>
+        .hero-overlay { background-image: linear-gradient(125deg, rgba(99, 198, 193, 0.68) 0%, rgba(114, 208, 200, 0.62) 48%, rgba(238, 145, 140, 0.65) 100%), url('PetID/wwwroot/imagenes/Fondo_pagina_principal.png'); }
+    </style>
 </head>
 <body>
-  <header class="site-header">
-    <nav class="nav container" aria-label="Navegación principal">
-      <a class="brand" href="index.html"><img src="PetID/wwwroot/imagenes/Logo_PetID.png" alt="PetID">PetID</a>
-      <div class="nav-links">
-        <a href="#funcionamiento">Cómo funciona</a>
-        <a href="#proyecto">El proyecto</a>
-        <a class="nav-login" href="login.html">Iniciar sesión</a>
-      </div>
-    </nav>
-  </header>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-0">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">PetID</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir navegación">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between" id="mainNav">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item"><a class="nav-link text-dark" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" href="#privacidad">Privacidad</a></li>
+                    </ul>
+                    <ul class="navbar-nav"><li class="nav-item"><a class="btn btn-primary btn-sm" href="login.html">Iniciar Sesión</a></li></ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-  <main>
-    <section class="hero" id="inicio">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow">Identificación inteligente · Tecnología NFC</span>
-          <h1>PetID NFC</h1>
-          <p class="lead">Collares e identificadores inteligentes para ayudar a que las mascotas vuelvan a casa.</p>
-          <p>Una persona puede acercar un teléfono compatible a la medalla NFC y consultar la información de identificación preparada por su responsable.</p>
-          <div class="actions">
-            <a class="button" href="#funcionamiento">¿Cómo funciona?</a>
-            <a class="button button-outline" href="login.html">Iniciar sesión</a>
-          </div>
+    <div class="hero-wrapper mb-0">
+        <div class="hero-overlay d-flex align-items-center">
+            <div class="container text-white py-5">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <img src="PetID/wwwroot/imagenes/Logo_PetID.png" alt="PetID Logo" class="hero-logo rounded-circle shadow" />
+                            <span class="badge bg-primary fs-6 px-3 py-2">Tecnología NFC</span>
+                        </div>
+                        <h1 class="display-3 fw-bold mb-3">PetID NFC</h1>
+                        <p class="lead fs-3 fw-normal mb-4">Collares e identificadores inteligentes para la seguridad de tu mascota</p>
+                        <p class="fs-5 mb-4 text-light opacity-90">Una solución rápida, moderna y eficiente para localizar e identificar a tu compañero en caso de extravío. Escaneo inmediato desde cualquier smartphone sin baterías ni aplicaciones adicionales.</p>
+                        <div class="d-grid gap-3 d-sm-flex justify-content-sm-start">
+                            <a href="#funcionamiento" class="btn btn-primary btn-lg px-4 me-sm-2 shadow-sm">¿Cómo Funciona?</a>
+                            <a href="#precios" class="btn btn-outline-light btn-lg px-4">Planes y Precios</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 text-center mt-5 mt-lg-0">
+                        <div class="hero-card p-4 rounded-4 shadow-lg bg-white text-dark">
+                            <img src="PetID/wwwroot/imagenes/Logo_PetID.png" alt="PetID Logo Grande" class="img-fluid rounded-4 mb-3 logo-preview" />
+                            <h4 class="fw-bold mb-2">Escanea. Identifica. Protege.</h4>
+                            <p class="text-muted small mb-0">Tecnología sin contacto para la tranquilidad de tu hogar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="hero-card">
-          <img src="PetID/wwwroot/imagenes/Logo_PetID.png" alt="Logotipo de PetID">
-          <h2>Escanea. Identifica. Protege.</h2>
-          <p>Protección inteligente para quienes más queremos.</p>
-        </div>
-      </div>
-    </section>
+    </div>
 
-    <section class="section container" id="funcionamiento">
-      <div class="section-heading">
-        <span class="eyebrow">Fácil de entender</span>
-        <h2>¿Cómo funciona?</h2>
-      </div>
-      <div class="steps">
-        <article class="card step"><span class="number">1</span><h3>Perfil de identificación</h3><p>Se prepara la información de la mascota y la forma de contacto de su responsable.</p></article>
-        <article class="card step"><span class="number">2</span><h3>Medalla inteligente</h3><p>La medalla contiene un identificador NFC que dirige a la información preparada.</p></article>
-        <article class="card step"><span class="number">3</span><h3>Escaneo rápido</h3><p>Al acercar un teléfono compatible, se puede consultar la información necesaria para ayudar.</p></article>
-      </div>
-    </section>
+    <div class="container">
+        <section id="funcionamiento" class="mb-5 pt-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold display-5 text-dark">¿Cómo Funciona el Sistema?</h2>
+                <p class="text-muted lead">Protección inteligente en solo 3 sencillos pasos</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4"><div class="card custom-card h-100 shadow-sm border-0 text-center p-4"><div class="card-body"><div class="step-badge mb-3">1</div><h4 class="card-title fw-bold mb-3">Registro de Perfil</h4><p class="card-text text-muted">Crea tu perfil y el de tu mascota con datos de contacto, foto, dirección e información médica vital como vacunas y alergias.</p></div></div></div>
+                <div class="col-md-4"><div class="card custom-card h-100 shadow-sm border-0 text-center p-4"><div class="card-body"><div class="step-badge mb-3">2</div><h4 class="card-title fw-bold mb-3">Medalla Inteligente</h4><p class="card-text text-muted">Cada chip NFC contiene una URL única direccionada directamente al perfil de tu mascota. No requiere baterías ni descargas de apps.</p></div></div></div>
+                <div class="col-md-4"><div class="card custom-card h-100 shadow-sm border-0 text-center p-4"><div class="card-body"><div class="step-badge mb-3">3</div><h4 class="card-title fw-bold mb-3">Escaneo Rápido</h4><p class="card-text text-muted">Si alguien encuentra a tu mascota, solo debe acercar su smartphone al collar para ver tus datos de contacto al instante.</p></div></div></div>
+            </div>
+        </section>
 
-    <section class="section container" id="proyecto">
-      <div class="project-card">
-        <span class="eyebrow">Demostración</span>
-        <h2>Un proyecto para cuidar a las mascotas</h2>
-        <p>Esta página es una prueba estática publicada con GitHub Pages. No utiliza SQL, no guarda datos reales y el inicio de sesión corresponde únicamente a una demostración.</p>
-        <p><strong>Usuario de prueba:</strong> admin@petid.com · <strong>Contraseña:</strong> admin123</p>
-        <div class="actions"><a class="button" href="login.html">Entrar al demo</a><a class="button button-outline" href="dashboard.html">Ver dashboard</a></div>
-      </div>
-    </section>
-  </main>
+        <section id="privacidad" class="py-5" aria-labelledby="privacidad-titulo">
+            <div class="row justify-content-center"><div class="col-lg-10">
+                <div class="text-center mb-4"><span class="badge bg-primary px-3 py-2">Sobre PetID</span><h2 id="privacidad-titulo" class="fw-bold display-5 text-dark mt-3">Un proyecto para cuidar a quienes más queremos</h2></div>
+                <div class="card border-0 shadow-sm p-4 p-md-5">
+                    <h3 class="h4 fw-bold">¿Qué es PetID?</h3>
+                    <p class="text-muted">PetID es un proyecto de identificación inteligente para mascotas que utiliza tecnología NFC. La idea es que una persona pueda acercar un teléfono compatible a la medalla de una mascota y consultar la información de identificación y contacto que su responsable haya preparado para ayudar a que vuelva a casa.</p>
+                    <h3 class="h4 fw-bold mt-3">Privacidad de la información</h3>
+                    <p class="text-muted mb-2">La información del perfil debe utilizarse únicamente para facilitar la identificación y el contacto con el responsable de la mascota. Al preparar un perfil, comparte solo los datos necesarios para ese propósito y evita incluir información sensible, como contraseñas o datos financieros.</p>
+                    <p class="text-muted mb-0">Esta versión estática es una demostración: no guarda cuentas ni información de mascotas.</p>
+                    <p class="mt-3 mb-0"><a href="register.html">Ver registro de demostración</a></p>
+                </div>
+            </div></div>
+        </section>
+    </div>
 
-  <footer><div class="container">&copy; 2026 PetID · Versión demostrativa sin datos reales</div></footer>
+    <footer class="border-top footer text-muted mt-5"><div class="container">&copy; 2026 - PetID - <a href="#privacidad">Privacidad y proyecto</a></div></footer>
+    <script src="PetID/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
