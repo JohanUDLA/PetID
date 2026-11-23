@@ -22,3 +22,4 @@ public class RegisterViewModel
     [Display(Name = "Confirmar contraseña")]
     public string ConfirmPassword { get; set; } = string.Empty;
 }
+ 
