@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | PetID</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="dashboard-header">
+    <nav class="nav container" aria-label="Navegación del dashboard">
+      <a class="brand" href="index.html"><img src="PetID/wwwroot/imagenes/Logo_PetID.png" alt="">PetID</a>
+      <div class="dashboard-nav"><a href="#identificadores">Mis identificadores</a><a href="#estadisticas">Estadísticas</a><button id="logout-button" type="button">Cerrar sesión</button></div>
+    </nav>
+  </header>
+
+  <main class="container dashboard-main">
+    <div class="welcome"><strong>¡Bienvenido!</strong> Sesión de demostración iniciada como <span id="user-name">admin@petid.com</span>.</div>
+
+    <section class="dashboard-heading">
+      <div><span class="eyebrow">TU ESPACIO PETID</span><h1>Resumen de tu cuenta</h1><p class="muted">Consulta el estado de tus mascotas e identificadores.</p></div>
+    </section>
+
+    <section class="stats-grid" aria-label="Resumen">
+      <article class="card stat"><span class="stat-icon">🐾</span><h2>Mascotas registradas</h2><strong>0</strong><p>Tus perfiles aparecerán aquí</p></article>
+      <article class="card stat"><span class="stat-icon">📱</span><h2>Identificadores activos</h2><strong>0</strong><p>Chips vinculados a tus mascotas</p></article>
+      <article class="card stat"><span class="stat-icon">📡</span><h2>Escaneos este mes</h2><strong>0</strong><p>Lecturas registradas por NFC</p></article>
+      <article class="card stat"><span class="stat-icon">🔔</span><h2>Alertas pendientes</h2><strong>0</strong><p>Avisos que requieren atención</p></article>
+    </section>
+
+    <section class="dashboard-section" id="identificadores">
+      <div class="section-title"><div><span class="eyebrow">IDENTIFICACIÓN NFC</span><h2>Mis identificadores</h2></div><span aria-hidden="true">📲</span></div>
+      <div class="status-grid"><div class="status"><span class="dot green"></span>Activos <strong>0</strong></div><div class="status"><span class="dot yellow"></span>Sin asignar <strong>0</strong></div><div class="status"><span class="dot gray"></span>Desactivados <strong>0</strong></div></div>
+      <div class="empty-state"><span aria-hidden="true">🏷️</span><h3>Aún no tienes identificadores</h3><p>Los datos son de demostración y no representan registros reales.</p></div>
+    </section>
+
+    <section class="dashboard-section" id="estadisticas">
+      <div class="section-title"><div><span class="eyebrow">ACTIVIDAD Y REPORTES</span><h2>Estadísticas</h2></div><span aria-hidden="true">📊</span></div>
+      <div class="chart-grid"><article class="card chart"><h3>Escaneos por mes</h3><div class="empty-chart">📈<p>No hay actividad registrada.</p></div></article><article class="card chart"><h3>Mascotas por tipo</h3><div class="empty-chart">🐶<p>No hay mascotas registradas.</p></div></article></div>
+    </section>
+
+    <section class="dashboard-section">
+      <span class="eyebrow">ÚLTIMOS MOVIMIENTOS</span><h2>Actividad reciente</h2>
+      <div class="empty-state"><p>Esta versión de prueba no contiene actividad ni datos reales.</p></div>
+    </section>
+  </main>
+
+  <footer><div class="container">&copy; 2026 PetID · Dashboard demostrativo</div></footer>
+
+  <script>
+    const user = sessionStorage.getItem("petidDemoUser");
+    if (user !== "admin@petid.com") {
+      window.location.replace("login.html");
+    } else {
+      document.getElementById("user-name").textContent = user;
+    }
+
+    document.getElementById("logout-button").addEventListener("click", () => {
+      sessionStorage.removeItem("petidDemoUser");
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>
