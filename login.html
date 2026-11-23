@@ -6,7 +6,17 @@
     <title>Iniciar Sesión - PetID</title>
     <link rel="stylesheet" href="PetID/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="PetID/wwwroot/css/site.css" />
-    <link rel="stylesheet" href="PetID/wwwroot/css/login.css" />
+    <link rel="stylesheet" href="PetID/wwwroot/css/login.css?v=2" />
+    <style>
+        .login-container {
+            background:
+                radial-gradient(circle at 15% 20%, rgba(247, 194, 196, 0.52) 0 7%, transparent 7.5%),
+                radial-gradient(circle at 85% 82%, rgba(99, 198, 193, 0.45) 0 9%, transparent 9.5%),
+                linear-gradient(135deg, #fffaf8 0%, #f5ebe8 48%, #dff4f1 100%);
+        }
+        .login-container::before { background: rgba(238, 145, 140, 0.2); }
+        .login-container::after { background: rgba(99, 198, 193, 0.2); }
+    </style>
 </head>
 <body>
     <main class="login-container">
